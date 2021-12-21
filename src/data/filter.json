@@ -1,0 +1,44 @@
+{
+  "elements": [
+    {
+      "id": "type",
+      "type": "input",
+      "label": "Type",
+      "value": 0,
+      "typeahead": [
+        {
+          "id": 0,
+          "label": "Video only"
+        },
+        {
+          "id": 1,
+          "label": "Audio only"
+        },
+        {
+          "id": 2,
+          "label": "Video and audio"
+        }
+      ]
+    },
+    {
+      "id": "platform",
+      "type": "input",
+      "label": "Platform",
+      "value": 0,
+      "typeahead": [
+        {
+          "id": 0,
+          "label": "Facebook"
+        },
+        {
+          "id": 1,
+          "label": "Twitter"
+        },
+        {
+          "id": 2,
+          "label": "YouTube"
+        }
+      ]
+    }
+  ]
+}
