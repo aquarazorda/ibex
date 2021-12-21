@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
-import { Typeahead } from 'react-bootstrap-typeahead';
+import { MenuItem, Typeahead } from 'react-bootstrap-typeahead';
 
-interface InputItem {
+export interface InputItem {
+  id: string,
   type: string,
   label: string,
-  value: number,
+  value: any[],
   typeahead: any[]
 }
 
@@ -12,20 +13,18 @@ interface Props {
   input: InputItem
 }
 
-export function Input(props: Props) {
-  const [selections, setSelections] = useState([]);
-
-  const update = (item: any) => setSelections(item);
+export function Input({ input }: Props) {
+  const [value, setValue] = useState(input.value);
 
   return (
     <div>
       <Typeahead
         multiple
-        id="basic-typeahead-multiple"
-        onChange={update}
-        options={props.input.typeahead}
-        placeholder="Choose several states..."
-        selected={selections}
+        id={input.id}
+        onChange={setValue}
+        options={input.typeahead}
+        placeholder="Choose item..."
+        selected={value}
       />
     </div>
   )

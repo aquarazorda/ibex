@@ -4,7 +4,7 @@
       "id": "type",
       "type": "input",
       "label": "Type",
-      "value": 0,
+      "value": [],
       "typeahead": [
         {
           "id": 0,
@@ -24,7 +24,7 @@
       "id": "platform",
       "type": "input",
       "label": "Platform",
-      "value": 0,
+      "value": [],
       "typeahead": [
         {
           "id": 0,
