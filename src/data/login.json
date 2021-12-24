@@ -1,0 +1,12 @@
+{
+  "elements": [
+    {
+      "type": "text",
+      "name": "username"
+    },
+    {
+      "type": "password",
+      "name": "password"
+    }
+  ]
+}
