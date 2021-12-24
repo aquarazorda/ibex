@@ -1,8 +1,9 @@
 import React from 'react';
-import { InputType } from '../../../types/form';
+import { FormElementInput } from '../../../types/form';
 
-export function Input({ type, onChange }: InputType) {
+export function Input({ data }: FormElementInput) {
+
   return (
-    <input type={type} onChange={onChange} />
+    <input type={data.type} onChange={data.onChange} />
   );
 }

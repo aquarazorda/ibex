@@ -1,8 +1,10 @@
 {
-  "elements": [
+  "data": [
     {
       "id": "type",
+      "component": "typeahead",
       "type": "input",
+      "name": "type",
       "label": "Type",
       "value": [],
       "typeahead": [
@@ -22,7 +24,9 @@
     },
     {
       "id": "platform",
+      "component": "typeahead",
       "type": "input",
+      "name": "platform",
       "label": "Platform",
       "value": [],
       "typeahead": [

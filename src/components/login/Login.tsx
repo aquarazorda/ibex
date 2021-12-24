@@ -1,17 +1,17 @@
 import React from 'react';
 import { Form } from '../form/Form';
-import { elements } from '../../data/login.json';
 import { FormData } from '../../types/form';
+import LoginData from '../../data/login.json';
 
 export function Login() {
   const submit = (data: FormData) => {
-    console.log(data);
+    console.log("TODO handle data");
   };
 
   return (
     <div>
       <h1>Login</h1>
-      <Form input={elements} submitter={submit} />
+      <Form data={LoginData.data} submitter={submit} />
     </div>
   );
 }
