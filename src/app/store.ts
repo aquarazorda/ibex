@@ -9,6 +9,9 @@ interface FilterItem {
 // const filterItemsForState: FilterItem =
 //   data.reduce((acc, elem) => ({ ...acc, [elem.id]: elem.value }), {});
 
-const { setGlobalState, useGlobalState } = createGlobalState({});
+const { setGlobalState, useGlobalState } = createGlobalState({
+  user: {},
+  filters: {}
+});
 
 export { setGlobalState, useGlobalState };
