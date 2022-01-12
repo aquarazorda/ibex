@@ -2,6 +2,7 @@ import React from 'react';
 import { Login } from './components/login/Login';
 import { Filter } from './components/filter/Filter';
 import { Routes, Route } from "react-router-dom";
+import { Table } from './components/table/Table';
 
 import './App.css';
 
@@ -12,6 +13,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Login />} />
           <Route path="filter" element={<Filter />} />
+          <Route path="table" element={<Table />} />
         </Routes>
       </header>
     </div>
