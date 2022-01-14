@@ -10,10 +10,25 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
+        <Filter />
         <Routes>
           <Route path="/" element={<Login />} />
-          <Route path="filter" element={<Filter />} />
-          <Route path="table" element={<Table />} />
+          
+          <Route path="results" element={<Results />} />
+          
+          
+          <Filter />
+            <Route path="table" element={<Table />} />
+            <Route path="graph" element={<Graph />} />
+            <Route path="bar" element={<Bar />} />
+            <Route path="line" element={<Line />} />
+            <Route path="map" element={<Map />} />
+            <Route path="bubble" element={<Bubble />} />
+          
+          <Route path="taxonomy" element={<Taxonomy />} />
+          <Route path="sources" element={<Sources />} />
+          
+          <Route path="post" element={<Sources />} />
         </Routes>
       </header>
     </div>
