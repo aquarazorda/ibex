@@ -2,11 +2,11 @@ import { Routes, Route } from "react-router-dom";
 
 import { Filter } from '../filter/Filter';
 import { Table } from '../table/Table';
-import { Bar } from '../charts/bar/Bar';
-import { Graph } from '../charts/graph/Graph';
-import { Line } from '../charts/line/Line';
-import { Map } from '../charts/map/Map';
-import { Bubble } from '../charts/bubble/Bubble';
+import { BarChart } from '../charts/bar/BarChart';
+import { GraphChart } from '../charts/graph/GraphChart';
+import { LineChart } from '../charts/line/LineChart';
+import { MapChart } from '../charts/map/MapChart';
+import { BubbleChart } from '../charts/bubble/BubbleChart';
 
 export function Results() {
   return (
@@ -14,11 +14,11 @@ export function Results() {
         <Filter />
         <Routes>
             <Route path="/" element={<Table />} />
-            <Route path="bar" element={<Bar />} />
-            <Route path="graph" element={<Graph />} />
-            <Route path="line" element={<Line />} />
-            <Route path="map" element={<Map />} />
-            <Route path="bubble" element={<Bubble />} />
+            <Route path="bar" element={<BarChart />} />
+            <Route path="graph" element={<GraphChart />} />
+            <Route path="line" element={<LineChart />} />
+            <Route path="map" element={<MapChart />} />
+            <Route path="bubble" element={<BubbleChart />} />
         </Routes>
       </div>
   );

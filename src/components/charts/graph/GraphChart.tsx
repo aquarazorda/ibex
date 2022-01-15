@@ -1,4 +1,4 @@
-export function Graph() {
+export function GraphChart() {
 
     return (
       <div>
