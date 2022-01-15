@@ -1,0 +1,25 @@
+.icn {
+	display: inline-block;
+	&--google{
+		
+	}
+	&--arrow {
+		border-top: 0;
+		border-right: 0;
+		border-color: $prime;
+		border-bottom: fvw(2);
+		border-left: fvw(2);
+		&.arrw-xs{
+			width: fvw(7);
+			height: fvw(7);
+		}
+		&.arrw-md{
+			width: fvw(10);
+			height: fvw(10);
+		}
+		&.arrw-lft{transform: rotate(45deg)}
+		&.arrw-rght{transform: rotate(-135deg)}
+		&.arrw-dwn{transform: rotate(-45deg)}
+		&.arrw-top{transform: rotate(135deg)}
+	}
+}

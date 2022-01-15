@@ -1,0 +1,22 @@
+mixin sidebar
+	aside.sidebar&attributes(attributes)
+		.logo
+			h1 ibex
+		nav.main-nav
+			ul
+				li
+					a(href="#") Taxonomy
+				li
+					a(href="#") Data Sources
+				li
+					a(href="#") Results #[i.icn.icn-arrow.arrw-dwn]
+					ul
+						li
+							a(href="#") Result 1
+						li
+							a(href="#") Result 2
+						li
+							a(href="#") Result 3
+		+btn('btn').btn--show-hide
+			span Hide sidebar
+			i.icn.icn--double-chevron-up

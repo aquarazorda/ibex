@@ -1,0 +1,19 @@
+.field {
+  @include size(100%, fvw(35));
+
+  border-top: 0;
+  border-right: 0;
+  border-bottom: 1px solid $second;
+  border-left: 0;
+  background-color: transparent;
+  color: $gray;
+  font-size: 1.04vw;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active  {
+	-webkit-box-shadow: 0 0 0 30px white inset !important;
+	box-shadow: 0 0 0 30px white inset !important;
+}

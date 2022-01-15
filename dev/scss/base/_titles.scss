@@ -1,0 +1,42 @@
+$title-colors: (
+  'prime': 	$prime,
+  'white':	#fff
+);
+
+$title-sizes: (
+  '1': 50,    // client reduced to 115px / from desing old - 165 
+  '2': 40,   //132
+  '3': 30,    //68
+  '4': 20,    //45
+  '5': 18,    //32
+  '6': 16      //30
+);
+
+
+h1, .h1,
+h2, .h2,
+h3, .h3,
+h4, .h4,
+h5, .h5,
+h6, .h6 {
+  margin-bottom: fvh(20);
+  line-height: 1;
+  color: $font-color;
+  font-family: $font-family;
+  font-weight: 400;
+
+  @each $status, $text-color in $title-colors {
+
+    &--#{$status} {
+      color: $text-color;
+    }
+  }
+}
+
+@each $index, $status in $title-sizes {
+
+  .h#{$index},
+  h#{$index} {
+    font-size: fvw($status);
+  }
+}

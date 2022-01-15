@@ -1,0 +1,35 @@
+@mixin placeholder($color, $center: null, $font-size: null){
+  &::-webkit-input-placeholder{
+    color: $color;
+
+    @if $center != null {
+      text-align: center;
+    }
+
+    @if $font-size != null {
+      font-size: $font-size;
+    }
+  }
+  &::-moz-placeholder{
+    color: $color;
+
+    @if $center != null {
+      text-align: center;
+    }
+
+    @if $font-size != null {
+      font-size: $font-size;
+    }
+  }
+  &:-ms-input-placeholder{
+    color: $color;
+
+    @if $center != null {
+      text-align: center;
+    }
+
+    @if $font-size != null {
+      font-size: $font-size;
+    }
+  }
+}

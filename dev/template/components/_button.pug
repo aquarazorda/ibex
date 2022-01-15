@@ -1,0 +1,13 @@
+mixin btn(value, href)
+	if value == 'link'
+		a.btn(href=href)&attributes(attributes)
+			if block
+				block
+	else if value == 'btn'
+		button.btn&attributes(attributes)
+			if block
+				block
+	else
+		.btn&attributes(attributes)
+			if block
+				block

@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>SAD</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#100d14">
+    <meta name="format-detection" content="telephone=yes">
+    <link rel="stylesheet" media="all" href="css/app.css">
+  </head>
+  <body>
+    <main class="main">
+      <aside class="sidebar">
+        <div class="logo">
+          <h1>ibex</h1>
+        </div>
+        <nav class="main-nav">
+          <ul>
+            <li><a href="#">Taxonomy</a></li>
+            <li><a href="#">Data Sources</a></li>
+            <li><a href="#">Results <i class="icn icn-arrow arrw-dwn"></i></a>
+              <ul>
+                <li><a href="#">Result 1</a></li>
+                <li><a href="#">Result 2</a></li>
+                <li><a href="#">Result 3</a></li>
+              </ul>
+            </li>
+          </ul>
+        </nav>
+        <button class="btn btn--show-hide"><span>Hide sidebar</span><i class="icn icn--double-chevron-up"></i>
+        </button>
+      </aside>
+      <div class="main-dashboard">
+        <section class="filter">
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-12">
+                <div class="row">
+                  <div class="col-6">
+                    <div class="row">
+                      <div class="col-4">
+                        <p class="font--xs font--gray-3 mb-5">From To:</p>
+                        <div class="date-picker">
+                          <p>02/02/2022 - 02/02/2022</p>
+                        </div>
+                      </div>
+                      <div class="col-4">
+                        <p class="font--xs font--gray mb-5">Type:</p>
+                        <div class="type flex">
+                          <div class="form__item">
+                            <label for="video">video</label>
+                            <input class="checkbox" type="checkbox" id="video"/>
+                          </div>
+                          <div class="form__item">
+                            <label for="text">text</label>
+                            <input class="checkbox" type="checkbox" id="text"/>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-4">
+                        <p class="font--xs font--gray mb-5">Text Input:</p>
+                        <div class="type flex">
+                          <div class="form__item">
+                            <Input class="field" type="text" placeholder="Some Text"> </Input>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-6">
+                    <p class="font--xs font--gray-3 mb-5">Platform:</p>
+                    <div class="select-tags"></div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-6">
+                    <p class="font--xs font--gray-3 mb-5">Data Source:</p>
+                    <div class="select-tags"></div>
+                  </div>
+                  <div class="col-6">
+                    <p class="font--xs font--gray-3 mb-5">Person:</p>
+                    <div class="select-tags"></div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-6">
+                    <p class="font--xs font--gray-3 mb-5">Topic:</p>
+                    <div class="select-tags"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <button class="btn btn--show-hide"><span>Hide Filter</span><i class="icn icn--double-chevron-up"></i>
+            </button>
+          </div>
+        </section>
+        <header class="header">
+          <nav class="nav"><a class="is-active" href="#">List </a><a href="#">Map </a><a href="#">Bar </a><a href="#">Graph </a><a href="#">Line </a></nav>
+          <div class="tools"><i class="icn icn--save"></i><i class="icn icn--voice"></i><i class="icn icn--downlod"></i></div>
+        </header>
+        <section class="table">
+          <div class="table--header">
+            <div class="table--row">
+              <div class="table--col"><span>date</span></div>
+              <div class="table--col"><span>platform</span></div>
+              <div class="table--col"><span>Channel</span></div>
+              <div class="table--col"><span>Titles</span></div>
+              <div class="table--col"><i class="icn icn--like"></i></div>
+              <div class="table--col"><i class="icn icn--dislike"></i></div>
+              <div class="table--col"><i class="icn icn--share"></i></div>
+              <div class="table--col"><i class="icn icn--comment"></i></div>
+              <div class="table--col"><i class="icn icn--toxicity"></i></div>
+            </div>
+          </div>
+          <div class="table--body">
+            <div class="table--item">
+              <div class="table--row">
+                <div class="table--col"><span class="font--xs">12/03/2021</span></div>
+                <div class="table--col"><i class="icn icn--facebook"></i></div>
+                <div class="table--col">
+                  <div class="flex">
+                    <div class="channgel-logo"><img src="" alt=""/></div><span>რადიო თავისუფლება</span>
+                  </div>
+                </div>
+                <div class="table--col"> <span>"საჭიროა ისიც გავარკვიოთ, რა სარგებლობას აძლევს რუსეთს აფხაზეთის დამოუკიდებლობის აღიარება" - სტატია, რომელიც აუცილებლად უნდა წაიკითხოთ! 👇</span></div>
+                <div class="table--col"> <span>2000</span></div>
+                <div class="table--col"> <span>500</span></div>
+                <div class="table--col"> <span>256</span></div>
+                <div class="table--col"> <span>3755</span></div>
+                <div class="table--col"> <span>95</span></div>
+              </div>
+              <div class="table--extra-row"><i class="icn icn--type-video"></i>
+                <div class="table--item-tags">
+                  <div class="flex"><span class="font-xs mr-15">Tags</span>
+                    <div class="flex"><span class="badge bg-secondary">tag 1</span><span class="badge bg-secondary">tag 2</span><span class="badge bg-secondary">tag 3</span></div>
+                  </div>
+                </div>
+                <div class="table--item-tags">
+                  <div class="flex"><span class="font-xs mr-15">Person</span>
+                    <div class="flex"><span class="badge bg-secondary">Mikheil saakashvili</span><span class="badge bg-secondary">Giorgi gakharia</span><span class="badge bg-secondary">tag 3</span></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="table--item">
+              <div class="table--row">
+                <div class="table--col"><span class="font--xs">12/03/2021</span></div>
+                <div class="table--col"><i class="icn icn--facebook"></i></div>
+                <div class="table--col">
+                  <div class="flex">
+                    <div class="channgel-logo"><img src="" alt=""/></div><span class="font--xs">რადიო თავისუფლება</span>
+                  </div>
+                </div>
+                <div class="table--col"> <span>"საჭიროა ისიც გავარკვიოთ, რა სარგებლობას აძლევს რუსეთს აფხაზეთის დამოუკიდებლობის აღიარება" - სტატია, რომელიც აუცილებლად უნდა წაიკითხოთ! 👇</span></div>
+                <div class="table--col"> <span>2000</span></div>
+                <div class="table--col"> <span>500</span></div>
+                <div class="table--col"> <span>256</span></div>
+                <div class="table--col"> <span>3755</span></div>
+                <div class="table--col"> <span>95</span></div>
+              </div>
+              <div class="table--extra-row">
+                <div class="table--item-type"><i class="icn icn--type-text"></i></div>
+                <div class="table--item-tags">
+                  <div class="flex"><span class="font-xs mr-15">Tags</span>
+                    <div class="flex"><span class="badge bg-secondary">tag 1</span><span class="badge bg-secondary">tag 2</span><span class="badge bg-secondary">tag 3</span></div>
+                  </div>
+                </div>
+                <div class="table--item-tags">
+                  <div class="flex"><span class="font-xs mr-15">Person</span>
+                    <div class="flex"><span class="badge bg-secondary">Mikheil saakashvili</span><span class="badge bg-secondary">Giorgi gakharia</span><span class="badge bg-secondary">tag 3</span></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+  </body>
+  <script src="js/custom.js"></script>
+</html>

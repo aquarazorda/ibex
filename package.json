@@ -1,54 +1,28 @@
 {
-  "name": "ibex",
-  "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-    "@testing-library/jest-dom": "^4.2.4",
-    "@testing-library/react": "^9.3.2",
-    "@testing-library/user-event": "^7.1.2",
-    "@types/faker": "^5.5.9",
-    "@types/jest": "^24.0.0",
-    "@types/node": "^12.0.0",
-    "@types/react": "^16.9.0",
-    "@types/react-dom": "^16.9.0",
-    "chart.js": "^3.7.0",
-    "faker": "^6.6.6",
-    "fp-ts": "^2.11.5",
-    "react": "^17.0.2",
-    "react-bootstrap-typeahead": "5.2.1",
-    "react-chartjs-2": "^4.0.0",
-    "react-dom": "^17.0.2",
-    "react-hooks-global-state": "^1.0.2",
-    "react-router-dom": "6",
-    "react-scripts": "5.0.0",
-    "react-table": "^7.7.0",
-    "ts-pattern": "^3.3.4",
-    "typescript": "~4.1.5"
-  },
+  "name": "base",
+  "version": "1.0.0",
+  "description": "base structure",
+  "main": "index.js",
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "eslintConfig": {
-    "extends": "react-app"
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  },
+  "author": "Monoke.studio",
+  "license": "ISC",
   "devDependencies": {
-    "@types/react-bootstrap-typeahead": "^5.1.8",
-    "@types/react-table": "^7.7.9",
-    "@types/react-tag-input": "^6.1.3"
+    "browser-sync": "^2.24.6",
+    "del": "^3.0.0",
+    "gulp": "github:gulpjs/gulp#4.0",
+    "gulp-autoprefixer": "7.0.1",
+    "gulp-concat": "^2.6.1",
+    "gulp-cssnano": "^2.1.3",
+    "gulp-nunjucks": "^4.0.0",
+    "gulp-rename": "^1.3.0",
+    "gulp-sass": "^4.0.1",
+    "gulp-uglifyjs": "^0.6.2",
+    "gulp-sourcemaps": "^2.6.5",
+    "gulp-useref": "^3.1.5"
+  },
+  "dependencies": {
+    "link": "^0.1.5"
   }
 }

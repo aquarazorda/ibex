@@ -1,0 +1,10 @@
+mixin header(type)
+	if type == 'main'
+		header.header&attributes(attributes)
+			+nav
+			+tools
+	if type == 'simple'
+		header.header&attributes(attributes)
+			.container.flex
+				.logo
+					img(src="img/logo/logo.svg", alt="")

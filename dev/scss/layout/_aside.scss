@@ -1,0 +1,37 @@
+.sidebar{
+	min-width: 10%;
+	background-color: $white;
+	padding: 0 15px;
+	position: relative;
+	.main-nav{
+		ul{
+			li{
+				margin-bottom: 8px;
+				a{
+					font-size: 12px;
+					line-height: 130%;
+					color: $gray-3;
+				}
+				ul{
+					margin-top: 5px;
+					li{
+						padding-left: 30px;
+						
+					}
+				}
+			}
+		}
+	}
+	.btn--show-hide{
+		height: 26px;
+		position: absolute;
+		background-color: $white;
+		padding: 5px 30px;
+		top: 50%;
+		right: 0;
+		transform: translate(47%, -50%) rotate(-90deg);
+		span {
+			white-space: nowrap;
+		}
+	}
+}

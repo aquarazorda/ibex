@@ -1,0 +1,55 @@
+.btn {
+  @include reset-button;
+
+  height: fvh(44);
+  border-radius: fvw(10);
+  span{
+	font-size: fvw(16);
+  }
+
+  &__icon {
+    @include size(fvw(70), 100%);
+
+    background-color: #fff;
+    padding: fvw(6);
+    svg {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  &__text {
+    padding: 0 fvw(40);
+  }
+
+  &--sm {
+    padding: 0 fvw(10);
+    height: fvh(28);
+  }
+
+  &--lg {
+    height: fvh(64);
+  }
+  &--full-lg {
+	  width: 100%;
+	height: fvh(64);
+  }
+
+  &--green {
+	  background-color: $prime;
+	  span{
+		  color: $white;
+	  }
+  }
+
+}
+
+.badge{
+	&.bg-secondary{
+		color: $gray-1;
+		font-size: 12px;
+		padding: 3px 8px;
+		background-color: $gray-5;
+		border-radius: 4px;
+	}
+}

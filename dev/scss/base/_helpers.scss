@@ -1,0 +1,181 @@
+.flex {
+  display: flex;
+
+  &-row {
+    flex-wrap: wrap;
+  }
+
+  &-row-reverse {
+    flex-direction: row-reverse;
+  }
+
+  &-column {
+    flex-direction: column;
+  }
+
+  &-column-reverse {
+    flex-direction: column-reverse;
+  }
+
+  &-wrap {
+    flex-wrap: wrap;
+  }
+}
+
+.align {
+
+  &-left {
+    justify-content: flex-start;
+  }
+
+  &-right {
+    justify-content: flex-end;
+  }
+
+  &-center {
+    justify-content: center;
+  }
+
+  &-justify {
+    justify-content: space-between;
+  }
+
+  &-spaced {
+    justify-content: space-around;
+  }
+
+  &-top {
+    align-items: flex-start;
+  }
+
+  &-bottom {
+    align-items: flex-end;
+  }
+
+  &-middle {
+    align-items: center;
+  }
+
+  &-stretch {
+    align-items: stretch;
+  }
+
+  &-baseline {
+    align-items: baseline;
+  }
+
+  &-self-top {
+    align-self: flex-start;
+  }
+
+  &-self-bottom {
+    align-self: flex-end;
+  }
+
+  &-self-middle {
+    align-self: center;
+  }
+
+  &-self-stretch {
+    align-self: stretch;
+  }
+
+  &-center-middle {
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+.text {
+
+  &-left {
+    text-align: left;
+  }
+
+  &-right {
+    text-align: right;
+  }
+
+  &-center {
+    text-align: center;
+  }
+
+  &-justify {
+    text-align: justify;
+  }
+
+  &-uppercase {
+    text-transform: uppercase;
+  }
+
+  &-underline {
+    text-decoration: underline;
+  }
+
+  &-cursive {
+    font-style: italic;
+  }
+
+  &-nowrap {
+    white-space: nowrap;
+  }
+
+  &-ellipsis {
+    @include ellipsis;
+  }
+}
+
+.overflow {
+
+  &-hidden {
+    overflow: hidden!important;
+  }
+
+  &-visible {
+    overflow: visible!important;
+  }
+}
+
+.relative {
+  position: relative;
+}
+
+.border {
+  border: 0!important;
+}
+
+.padding {
+  padding: 0!important;
+}
+
+.margin {
+  margin: 0!important;
+}
+
+// Need to write all margin
+
+$margin: (
+ '5': 5px,
+ '10': 10px,
+ '15': 15px,
+ '20': 20px,
+);
+
+@each $index, $value in $margin {
+
+ .mt-#{$index} {
+   margin-top: $value;
+ }
+
+ .mb-#{$index} {
+   margin-bottom: $value;
+ }
+
+ .mr-#{$index} {
+   margin-right: $value;
+ }
+
+ .ml-#{$index} {
+   margin-left: $value;
+ }
+}

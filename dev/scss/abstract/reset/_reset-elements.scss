@@ -1,0 +1,21 @@
+@mixin reset-button {
+//   @include flex(center, center);
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
+
+  margin: 0;
+  outline: none;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  padding: 0;
+  overflow: visible;
+}
+
+@mixin reset-list {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+  }
+  

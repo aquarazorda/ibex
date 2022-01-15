@@ -1,0 +1,13 @@
+extends ./layout/_layout
+
+include ./module/_index
+include ./components/_index
+include ./layout/_index
+
+block content
+	main.main
+		+sidebar
+		.main-dashboard
+			+filter
+			+header('main')
+			+list

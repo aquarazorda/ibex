@@ -1,0 +1,9 @@
+.chkbox {
+	&--showhide{
+		position: absolute;
+		top: 50%;
+		right: fvw(15);
+		transform: translateY(-50%);
+	}
+
+}

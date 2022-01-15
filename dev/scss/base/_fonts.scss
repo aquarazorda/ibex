@@ -1,0 +1,88 @@
+$font-colors: (
+  'prime': $prime,
+  'black': #000,
+  'gray': $gray,
+  'gray-1': $gray-1,
+  'gray-3': $gray-3,
+  'white': #fff
+);
+
+$font-sizes: (
+  'xs': 12,
+  'sm': 14,
+  'md': 16,
+  'lg': 18,
+  'xlg': 20
+);
+
+$font-weights: (
+  'el': 200,
+  'rg': 400,
+  'mm': 500,
+  'sb': 600,
+  'bd': 700,
+  'eb': 800
+);
+
+.font {
+  line-height: 1.5;
+  color: $font-color;
+  font-family: $font-family;
+  font-size: $font-size;
+  font-weight: 400;
+
+  @each $status, $text-color in $font-colors {
+
+    &--#{$status} {
+      color: $text-color;
+    }
+  }
+
+  @each $status, $text-weight in $font-weights {
+
+    &--#{$status} {
+      font-weight: $text-weight;
+    }
+  }
+
+  @each $status, $text-size in $font-sizes {
+
+    &--#{$status} {
+      font-size: $text-size + px;
+    }
+  }
+}
+
+@font-face {
+    font-family: 'FiraGO';
+    src: url('../fonts/firago/FiraGO-Bold.eot');
+    src: url('../fonts/firago/FiraGO-Bold.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/firago/FiraGO-Bold.woff') format('woff'),
+         url('../fonts/firago/FiraGO-Bold.ttf') format('truetype'),
+         url('../fonts/firago/FiraGO-Bold.svg#bpg_nino_mkhedruliregular') format('svg');
+    font-weight: 900;
+    font-style: normal;
+
+}
+@font-face {
+    font-family: 'FiraGO';
+    src: url('../fonts/firago/FiraGO-Regular.eot');
+    src: url('../fonts/firago/FiraGO-Regular.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/firago/FiraGO-Regular.woff') format('woff'),
+         url('../fonts/firago/FiraGO-Regular.ttf') format('truetype'),
+         url('../fonts/firago/FiraGO-Regular.svg#bpg_nino_mkhedruliregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+@font-face {
+    font-family: 'FiraGO';
+    src: url('../fonts/firago/FiraGO-Medium.eot');
+    src: url('../fonts/firago/FiraGO-Medium.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/firago/FiraGO-Medium.woff') format('woff'),
+         url('../fonts/firago/FiraGO-Medium.ttf') format('truetype'),
+         url('../fonts/firago/FiraGO-Medium.svg#bpg_nino_mkhedruliregular') format('svg');
+    font-weight: 500;
+    font-style: normal;
+
+}

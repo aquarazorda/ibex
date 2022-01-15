@@ -1,0 +1,49 @@
+.form {
+	&__item {
+		position: relative;
+		&--pass{
+		}
+		.field, .textarea{
+
+			+ label.label[data-placeholder] {
+				pointer-events: none;
+				
+				&:after {
+					content: attr(data-placeholder);
+					color: $gray;
+					font-size: 14px;
+					
+					display: block;
+					position: absolute;
+					top: 50%;
+					left: 7px;
+					transform: translate(0%, -50%);
+					transition: all 0.3s ease-in-out;
+					padding: 0 8px;
+					background-color: #fff;
+				}
+			}
+
+			&:focus,
+			&:valid {
+				
+				+ label.label[data-placeholder] {
+					&:after {
+						transform: translate(-5%, fvw(-30));
+						font-size: 12px;
+					}
+				}
+			}
+		}
+		.textarea{
+			+label.label[data-placeholder]{
+				&:after{
+				top: 30px;
+				}
+			}
+		}
+		.checkbox{
+			appearance: auto;
+		}
+	}
+}

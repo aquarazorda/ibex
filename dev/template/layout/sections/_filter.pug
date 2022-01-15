@@ -1,0 +1,44 @@
+mixin filter
+	section.filter&attributes(attributes)
+		.container-fluid
+			.row
+				.col-12
+					.row
+						.col-6
+							.row
+								.col-4
+									p.font--xs.font--gray-3.mb-5 From To:
+									.date-picker
+										p 02/02/2022 - 02/02/2022
+								.col-4
+									p.font--xs.font--gray.mb-5 Type:
+									.type.flex
+										.form__item
+											label(for="video") video
+											input(type="checkbox").checkbox#video
+										.form__item
+											label(for="text") text
+											input(type="checkbox").checkbox#text
+									
+								.col-4
+									p.font--xs.font--gray.mb-5 Text Input:
+									.type.flex
+										.form__item
+											Input(type="text" placeholder="Some Text").field 
+						.col-6
+							p.font--xs.font--gray-3.mb-5 Platform:
+							.select-tags
+					.row
+						.col-6
+							p.font--xs.font--gray-3.mb-5 Data Source:
+							.select-tags
+						.col-6
+							p.font--xs.font--gray-3.mb-5 Person:
+							.select-tags
+					.row
+						.col-6
+							p.font--xs.font--gray-3.mb-5 Topic:
+							.select-tags
+			+btn('btn').btn--show-hide
+				span Hide Filter
+				i.icn.icn--double-chevron-up
