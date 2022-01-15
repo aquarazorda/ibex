@@ -1,0 +1,12 @@
+.sidebar{
+    width: var(--unit-size);
+    height: 100%;
+    position: absolute;
+    left:0;
+    top:0;
+}
+
+.sidebar a{
+    display: flex;
+    height: var(--unit-size);
+}

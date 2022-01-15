@@ -5,14 +5,16 @@ import { Results } from './components/results/Results';
 import { Taxonomy } from './components/taxonomy/Taxonomy';
 import { Sources } from './components/sources/Sources';
 import { Details } from './components/details/Details';
+import { Sidebar } from './components/sidebar/Sidebar';
 
 
 import './App.css';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
+    <div className="app">
+      <Sidebar />
+      <div className="content">
         <Routes>
           <Route path="/" element={<Login />} />
           <Route path="results/*" element={<Results />} />
@@ -20,7 +22,7 @@ function App() {
           <Route path="sources" element={<Sources />} />
           <Route path="details/:postId" element={<Details />} />
         </Routes>
-      </header>
+      </div>
     </div>
   );
 }

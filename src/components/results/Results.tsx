@@ -12,6 +12,15 @@ export function Results() {
   return (
       <div>
         <Filter />
+        <div className="menu">
+          <a href="/results/table" >Table</a>
+          <a href="/results/bar" >Bar</a>
+          <a href="/results/graph" >Graph</a>
+          <a href="/results/line" >Line</a>
+          <a href="/results/bubble" >Bubble</a>
+          <a href="/results/map" >Map</a>
+        </div>
+        
         <Routes>
             <Route path="/" element={<Table />} />
             <Route path="bar" element={<BarChart />} />
