@@ -13,7 +13,7 @@ export function Results() {
       <div>
         <Filter />
         <div className="menu">
-          <a href="/results/table" >Table</a>
+          <a href="/results" >Table</a>
           <a href="/results/bar" >Bar</a>
           <a href="/results/graph" >Graph</a>
           <a href="/results/line" >Line</a>
