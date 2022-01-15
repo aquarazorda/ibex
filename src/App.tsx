@@ -15,10 +15,10 @@ function App() {
       <header className="App-header">
         <Routes>
           <Route path="/" element={<Login />} />
-          <Route path="results" element={<Results />} />
+          <Route path="results/*" element={<Results />} />
           <Route path="taxonomy" element={<Taxonomy />} />
           <Route path="sources" element={<Sources />} />
-          <Route path="details" element={<Details />} />
+          <Route path="details/:postId" element={<Details />} />
         </Routes>
       </header>
     </div>
