@@ -40,6 +40,12 @@ main.main{
 
 
 // Sections
+section{
+	background-color: $white;
+	border-radius: 8px;
+	margin-bottom: 15px;
+	padding: 10px 15px;
+}
 
 .filter {
 	background-color: $white;
@@ -106,6 +112,17 @@ main.main{
 	}
 }
 
+
+.transcripts{
+	&--item{
+		p {
+			margin-bottom: 15px
+		}
+		.badge{
+			margin-right: 5px;
+		}
+	}
+}
 .nav{
 	display: flex;
 	a{

@@ -903,6 +903,22 @@ h6 {
   margin: 0 !important;
 }
 
+.mt-a {
+  margin-top: auto;
+}
+
+.mb-a {
+  margin-bottom: auto;
+}
+
+.mr-a {
+  margin-right: auto;
+}
+
+.ml-a {
+  margin-left: auto;
+}
+
 .mt-5 {
   margin-top: 5px;
 }
@@ -1153,6 +1169,14 @@ main.main .main-dashboard {
   background: transparent;
 }
 
+section {
+  background-color: #FCFCFC;
+  -webkit-border-radius: 8px;
+          border-radius: 8px;
+  margin-bottom: 15px;
+  padding: 10px 15px;
+}
+
 .filter {
   background-color: #FCFCFC;
   padding: 10px 15px;
@@ -1226,6 +1250,13 @@ main.main .main-dashboard {
   margin-right: 25px;
 }
 
+.transcripts--item p {
+  margin-bottom: 15px;
+}
+.transcripts--item .badge {
+  margin-right: 5px;
+}
+
 .nav {
   display: -webkit-box;
   display: -webkit-flex;
@@ -1239,6 +1270,10 @@ main.main .main-dashboard {
 }
 .nav a.is-active {
   font-weight: 900;
+}
+
+.header {
+  margin: 10px 0;
 }
 
 footer {

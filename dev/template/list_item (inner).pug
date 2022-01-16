@@ -1,0 +1,70 @@
+extends ./layout/_layout
+
+include ./module/_index
+include ./components/_index
+include ./layout/_index
+
+block content
+	main.main
+		+sidebar
+		.main-dashboard
+			+header('main')
+			.container-fluid
+				.row
+					.col-6
+						section.post--content
+							video(src="")
+						section.post--content-extra
+							.post--status.flex
+								.flex
+									.col
+										i.icn.icn--like
+										span 2000
+									.col
+										i.icn.icn--dislike
+										span 500
+									.col
+										i.icn.icn--share
+										span 256
+									.col
+										i.icn.icn--comment
+										span 3755
+									.col
+										i.icn.icn--toxicity
+										span 95
+								.post--date.ml-a
+									span 02/02/2022
+							.post--tags.flex
+								.flex
+									span.font-xs.mr-15 Tags
+									.flex
+										span.badge.bg-secondary tag 1
+										span.badge.bg-secondary tag 2
+										span.badge.bg-secondary tag 3
+							.post--details
+								.flex
+									.channgel-logo
+										img(src="", alt="")
+									span რადიო თავისუფლება
+								p "საჭიროა ისიც გავარკვიოთ, რა სარგებლობას აძლევს რუსეთს აფხაზეთის დამოუკიდებლობის აღიარება" - სტატია, რომელიც აუცილებლად უნდა წაიკითხოთ! 👇
+
+					.col-6
+						section.transcripts
+							.transcripts--item
+								p ავღანეთის ქალაქ ასადაბადში გამართულ 
+								.flex
+									span.badge.bg-secondary tag 1
+									span.badge.bg-secondary tag 2
+									span.badge.bg-secondary tag 3
+							.transcripts--item
+								p ავღანეთის ქალაქ ასადაბადში გამართულ 
+								.flex
+									span.badge.bg-secondary tag 1
+									span.badge.bg-secondary tag 2
+									span.badge.bg-secondary tag 3
+							.transcripts--item
+								p ავღანეთის ქალაქ ასადაბადში გამართულ 
+								.flex
+									span.badge.bg-secondary tag 1
+									span.badge.bg-secondary tag 2
+									span.badge.bg-secondary tag 3
