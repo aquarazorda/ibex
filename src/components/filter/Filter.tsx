@@ -68,8 +68,8 @@ export function Filter() {
             </div>
           </div>
         </div>
-        <button className="btn btn--show-hide"><span>Hide Filter</span><i className="icn icn--double-chevron-up"></i>
-        </button>
+        {/* <button className="btn btn--show-hide"><span>Hide Filter</span><i className="icn icn--double-chevron-up"></i>
+        </button> */}
       </div>
     </section>
   );
