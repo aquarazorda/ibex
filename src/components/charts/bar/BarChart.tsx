@@ -44,19 +44,16 @@ export const options = {
     }
 };
 
-const change = (e: any) => {
-    console.log(e)
-}
 
 export function BarChart() {
 // const BarChart = () => {
-    let labels = [1, 2, 3, 4]
+    let labels = [0]
     let data_: any = {
         labels,
         datasets: [
             {
                 label: 'Topics',
-                data: [2, 2, 2, 2],
+                data: [0],
                 backgroundColor: 'rgba(255, 99, 132, 0.5)',
             },
         ],
@@ -64,20 +61,26 @@ export function BarChart() {
 
     const [data, setData] = useState(data_);
     const [fetching, setFetching] = useState(true);
-     
-    useEffect(() => {
+    
+    const change = (e: any) => {
+        fetchAndSet(e.target.value)
+    }
+
+    const fetchAndSet = (label: any) => {
         const fetchData = Https.get('posts_aggregated', {
             "post_request_params": {
               "time_interval_from": "2021-01-16T17:23:05.925Z",
               "time_interval_to": "2021-07-16T17:23:05.925Z",
             },
-            "axisX": "topics",
+            "axisX": label,
             // "days": 30
          });
          
         fetchData.then(_data => {
-            let kkk = E.getOrElse(() => [{topics:{title:0},count:0}])(_data)
-            let labels = kkk.map(i => i.topics.title)
+            let pre_data: any = {count:0}
+            pre_data[label] = {title:0}
+            let kkk = E.getOrElse(() => [pre_data])(_data)
+            let labels = kkk.map(i => i[label].title)
             data_ = {
                 labels,
                 datasets: [
@@ -85,14 +88,11 @@ export function BarChart() {
                         fill: false,
                         lineTension: 0.1,
                         backgroundColor: 'rgba(75,192,192,0.4)',
-                        // borderColor: this.gradient,
                         pointBorderColor: '#111',
                         pointBackgroundColor: '#ff4000',
                         pointBorderWidth: 2,
-        //   backgroundColor: 'rgba(52, 152, 219, 0.75)',
-                        label: 'Topics',
+                        label: label,
                         data: kkk.map(i => i.count),
-                        // backgroundColor: 'rgba(255, 99, 132, 0.5)',
                     },
                 ],
             }; 
@@ -100,7 +100,9 @@ export function BarChart() {
             setFetching(false)
         });
 
-    }, []);
+    }
+    
+    useEffect(() => fetchAndSet('topics'), []);
 
     if (fetching) {
         return (
@@ -109,14 +111,18 @@ export function BarChart() {
     }
     return (
         <div>
-            <Typeahead
+            <select onChange={change}>
+                {   filterData.data.map(d => <option key={d.name}>{d.name}</option> )     }
+            </select>
+            
+            {/* <Typeahead
                 // multiple
                 id="Axis-X"
                 onChange={change}
                 options={filterData.data.map(d => d.label)}
                 placeholder="Axis X"
             // selected={value}
-            />
+            /> */}
             <div className="chart">
                 <Bar options={options} data={data} />
             </div>
