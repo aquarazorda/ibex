@@ -129,6 +129,48 @@
           "label": "Konstantine Baratashvili"
         }
       ]
+    },
+    {
+      "id": "topics",
+      "component": "typeahead",
+      "type": "input",
+      "name": "topics",
+      "label": "Topic",
+      "value": [],
+      "typeahead": [
+        {
+          "id": 0,
+          "label": "FacebookFacebook"
+        }
+      ]
+    },
+    {
+      "id": "persons",
+      "component": "typeahead",
+      "type": "input",
+      "name": "persons",
+      "label": "Persons",
+      "value": [],
+      "typeahead": [
+        {
+          "id": 0,
+          "label": "FacebookFacebook"
+        }
+      ]
+    },
+    {
+      "id": "locations",
+      "component": "typeahead",
+      "type": "input",
+      "name": "locations",
+      "label": "Location",
+      "value": [],
+      "typeahead": [
+        {
+          "id": 0,
+          "label": "FacebookFacebook"
+        }
+      ]
     }
   ]
 }

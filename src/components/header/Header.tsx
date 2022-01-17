@@ -1,7 +1,8 @@
 export const Header = () => (
   <header className="header">
     <nav className="nav">
-      <a className="is-active" href="/results" >Table</a>
+      {/* <a className="is-active" href="/results" >Table</a> */}
+      <a href="/results" >Table</a>
       <a href="/results/bar" >Bar</a>
       <a href="/results/graph" >Graph</a>
       <a href="/results/line" >Line</a>
