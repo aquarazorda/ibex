@@ -16,5 +16,6 @@ export const DateInterval = ({ data }: FilterElementInput) => {
     onChange={onChange}
     moveRangeOnFirstSelection={false}
     ranges={filters[data.id]}
+    showDateDisplay={false}
   />
 }
