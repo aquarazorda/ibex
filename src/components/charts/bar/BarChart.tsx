@@ -39,9 +39,23 @@ export const options = {
 const change = (e: any) => {
     console.log(e)
 }
+
 export function BarChart() {
-    let loading = true;
-    const [data, setData] = useState([]);
+// const BarChart = () => {
+    let labels = [1, 2, 3, 4]
+    let data_ = {
+        labels,
+        datasets: [
+            {
+                label: 'Topics',
+                data: [2, 2, 2, 2],
+                backgroundColor: 'rgba(255, 99, 132, 0.5)',
+            },
+        ],
+    };
+
+    const [data, setData] = useState(data_);
+    const [fetching, setFetching] = useState(true);
      
     useEffect(() => {
         const fetchData = Https.get('posts_aggregated', {
@@ -55,33 +69,38 @@ export function BarChart() {
          
         fetchData.then(_data => {
             // data1 = _data.right;
-            setData(E.getOrElse(() => [])(_data));
-            let labels = _data["right"].map(i => i.topics.title)
-            let data1 = {
+
+            debugger
+            // let labels = _data["right"].map(i => i.topics.title)
+            labels = [18, 2, 3, 4]
+            data_ = {
                 labels,
                 datasets: [
                     {
                         label: 'Topics',
-                        data: _data["right"].map(i => i.count),
+                        // data: _data["right"].map(i => i.count),
+                        data: [2, 2, 2, 2],
                         backgroundColor: 'rgba(255, 99, 132, 0.5)',
                     },
-                    // {
-                    //     label: 'Dataset 2',
-                    //     data: labels.map(() => Math.random() * 100),
-                    //     backgroundColor: 'rgba(53, 162, 235, 0.5)',
-                    // },
                 ],
             }; 
-            loading = false
-            console.log(_data["right"].map(i => i.topics.title));
-            console.log(loading);
+            console.log(_data)//["right"].map(i => i.topics.title));
+            // let k = _data
+            setFetching(true)
+
+            console.log(fetching, _data);
+            // setData(E.getOrElse(() => [])(_data));
+            // if(_data])
+            setData(data_);
+            setFetching(false)
+            console.log(fetching, _data);
         });
 
     }, []);
 
-    if (loading) {
+    if (fetching) {
         return (
-            <div></div>
+            <div>jjjjjj</div>
         )
         
     }
@@ -96,8 +115,10 @@ export function BarChart() {
             // selected={value}
             />
             
-            <Bar options={options} data={data1} />
+            <Bar options={options} data={data} />
                 
         </div>
     );
 }
+
+// export default BarChart
