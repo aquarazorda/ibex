@@ -1,12 +1,32 @@
-import React from 'react';
-import { Form } from '../form/Form';
-import { FormData } from '../../types/form';
-import filterData from '../../data/filter.json';
+import React, { useEffect, useState } from 'react';
+import { match } from 'ts-pattern';
+import { FilterElement } from '../../types/form';
+import { useGlobalState } from '../../app/store';
+import { reduce } from 'fp-ts/lib/Array';
+import { Tag } from '../inputs/Tag';
+import { Checkbox } from '../inputs/Checkbox';
+import { Text } from '../inputs/Text';
 
 export function Filter() {
-  const submit = (data: FormData) => {
-    console.log("TODO handle data");
-  };
+  const { data }: { data: FilterElement[] } = require('../../data/filter.json')
+
+  const [_, setFilters] = useGlobalState('filters');
+
+  useEffect(() => {
+    // generate state object from data and set it to global state
+    setFilters(reduce({}, (acc, cur: FilterElement) => (
+      { ...acc, [cur.label]: cur.value }
+    ))(data));
+  }, [])
+
+  const getElem = (el: FilterElement) => match(el.type)
+    .with("tag", () => <Tag data={el} />)
+    .with("text", () => <Text data={el} />)
+    .with("checkbox", () => <Checkbox data={el} />)
+    .otherwise(() => {
+      console.error(`Invalid component name ${el.type}`);
+      return <></>
+    })
 
   return (
     <section className="filter">
@@ -16,60 +36,19 @@ export function Filter() {
             <div className="row">
               <div className="col-6">
                 <div className="row">
-                  <div className="col-4">
-                    <p className="font--xs font--gray-3 mb-5">From To:</p>
-                    <div className="date-picker">
-                      <p>02/02/2022 - 02/02/2022</p>
-                    </div>
-                  </div>
-                  <div className="col-4">
-                    <p className="font--xs font--gray mb-5">Type:</p>
-                    <div className="type flex">
+                  {data.map(el => (
+                    <div className="col-4">
+                      <p className="font--xs font--gray-3 mb-5">{el.label}</p>
                       <div className="form__item">
-                        <label>video</label>
-                        {/* <input className="checkbox" type="checkbox" id="video" /> */}
-                      </div>
-                      <div className="form__item">
-                        <label>text</label>
-                        {/* <input className="checkbox" type="checkbox" id="text" /> */}
+                        {getElem(el)}
                       </div>
                     </div>
-                  </div>
-                  <div className="col-4">
-                    <p className="font--xs font--gray mb-5">Text Input:</p>
-                    <div className="type flex">
-                      <div className="form__item">
-                        {/* <input className="field" type="text" placeholder="Some Text"> </input> */}
-                      </div>
-                    </div>
-                  </div>
+                  ))}
                 </div>
-              </div>
-              <div className="col-6">
-                <p className="font--xs font--gray-3 mb-5">Platform:</p>
-                <div className="select-tags"></div>
-              </div>
-            </div>
-            <div className="row">
-              <div className="col-6">
-                <p className="font--xs font--gray-3 mb-5">Data Source:</p>
-                <div className="select-tags"></div>
-              </div>
-              <div className="col-6">
-                <p className="font--xs font--gray-3 mb-5">Person:</p>
-                <div className="select-tags"></div>
-              </div>
-            </div>
-            <div className="row">
-              <div className="col-6">
-                <p className="font--xs font--gray-3 mb-5">Topic:</p>
-                <div className="select-tags"></div>
               </div>
             </div>
           </div>
         </div>
-        {/* <button className="btn btn--show-hide"><span>Hide Filter</span><i className="icn icn--double-chevron-up"></i>
-        </button> */}
       </div>
     </section>
   );

@@ -1,6 +1,6 @@
 import { Routes, Route } from "react-router-dom";
 
-import { Login } from './components/login/Login';
+// import { Login } from './components/login/Login';
 import { Results } from './components/results/Results';
 import { Taxonomy } from './components/taxonomy/Taxonomy';
 import { Sources } from './components/sources/Sources';
