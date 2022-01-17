@@ -2,23 +2,23 @@
   "data": [
     {
       "Header": "Date",
-      "accessor": "date"
+      "accessor": "created_at"
     },
     {
       "Header": "Type & Channel",
-      "accessor": "type"
+      "accessor": "platform"
     },
     {
       "Header": "Titles",
-      "accessor": "description"
+      "accessor": "text"
     },
     {
       "Header": "Likes",
-      "accessor": "likes"
+      "accessor": "scores.likes"
     },
     {
       "Header": "Shares",
-      "accessor": "shares"
+      "accessor": "scores.shares"
     }
   ]
 }

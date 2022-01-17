@@ -1,24 +1,27 @@
-import React, { useMemo } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import { POSTS_ } from '../../data/data';
 
 import { useTable } from 'react-table';
 import cols from '../../data/columns.json';
+import { Https } from '../../shared/Http';
+import * as E from "fp-ts/lib/Either";
 
 export function Table() {
+  const [data, setData] = useState([]);
 
   // This needs to be passed as parameters TODO
   // TODO get rid of 'any' type here
   const columns: any = useMemo(() => cols.data, []);
+  const fetchData = Https.get('posts', {
+    "time_interval_from": "2021-01-16T17:23:05.925Z",
+    "time_interval_to": "2021-07-16T17:23:05.925Z",
+    "count": 10
+  });
 
-  // This one aswell
-  const data = POSTS_.map(item => ({
-    date: item["Post Created Date"],
-    type: item["Type"],
-    description: item["Description"],
-    likes: item["Likes"],
-    // "Dislikes": item["Dislikes"],
-    shares: item["Shares"]
-  }));
+  useEffect(() => {
+    fetchData.then((maybeData) => setData(E.getOrElse(() => [])(maybeData)));
+    console.log(data);
+  }, []);
 
   const {
     getTableProps,
