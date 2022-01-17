@@ -5,8 +5,12 @@
       "accessor": "created_at"
     },
     {
-      "Header": "Type & Channel",
+      "Header": "Platform",
       "accessor": "platform"
+    },
+    {
+      "Header": "Channel",
+      "accessor": "channel"
     },
     {
       "Header": "Titles",
@@ -17,8 +21,20 @@
       "accessor": "scores.likes"
     },
     {
+      "Header": "Dislikes",
+      "accessor": "scores.dislikes"
+    },
+    {
       "Header": "Shares",
       "accessor": "scores.shares"
+    },
+    {
+      "Header": "Comments",
+      "accessor": "scores.engagement"
+    },
+    {
+      "Header": "Toxicity",
+      "accessor": "scores.toxicity"
     }
   ]
 }

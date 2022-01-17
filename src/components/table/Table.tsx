@@ -8,18 +8,20 @@ import * as E from "fp-ts/lib/Either";
 
 export function Table() {
   const [data, setData] = useState([]);
-
-  // This needs to be passed as parameters TODO
-  // TODO get rid of 'any' type here
   const columns: any = useMemo(() => cols.data, []);
-  const fetchData = Https.get('posts', {
-    "time_interval_from": "2021-01-16T17:23:05.925Z",
-    "time_interval_to": "2021-07-16T17:23:05.925Z",
-    "count": 10
-  });
 
   useEffect(() => {
-    fetchData.then((maybeData) => setData(E.getOrElse(() => [])(maybeData)));
+    const fetchData = Https.get('posts', {
+      "time_interval_from": "2021-01-16T17:23:05.925Z",
+      "time_interval_to": "2021-07-16T17:23:05.925Z",
+      "count": 10
+    });
+
+    fetchData.then(_data => {
+      setData(E.getOrElse(() => [])(_data));
+      console.log(_data);
+    });
+
   }, []);
 
   const {
@@ -34,8 +36,17 @@ export function Table() {
   });
 
   return (
-    <section className="table">
-      <div className="table--header">
+    <table {...getTableProps()} className="table">
+      <thead className="table--header">
+        {headerGroups.map((headerGroup: any) => (
+          <tr {...headerGroup.getHeaderGroupProps()} className="table--row">
+            {headerGroup.headers.map((column: any) => (
+              <th {...column.getHeaderProps()} className="table--col">{column.render('Header')}</th>
+            ))}
+          </tr>
+        ))}
+      </thead>
+      {/* <div >
         <div className="table--row">
           <div className="table--col"><span>date</span></div>
           <div className="table--col"><span>platform</span></div>
@@ -47,7 +58,7 @@ export function Table() {
           <div className="table--col"><i className="icn icn--comment"></i></div>
           <div className="table--col"><i className="icn icn--toxicity"></i></div>
         </div>
-      </div>
+      </div> */}
       <div className="table--body">
         <div className="table--item">
           <div className="table--row">
@@ -109,7 +120,7 @@ export function Table() {
           </div>
         </div>
       </div>
-    </section>
+    </table>
   )
   // return (
   //   <div>
