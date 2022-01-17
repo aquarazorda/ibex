@@ -6,24 +6,22 @@ import { Taxonomy } from './components/taxonomy/Taxonomy';
 import { Sources } from './components/sources/Sources';
 import { Details } from './components/details/Details';
 import { Sidebar } from './components/sidebar/Sidebar';
-
+import { TableContainer } from './containers/TableContainer';
 
 import './App.css';
 
 function App() {
   return (
-    <div className="app">
+    <main className="main">
       <Sidebar />
-      <div className="content">
-        <Routes>
-          <Route path="/" element={<Login />} />
-          <Route path="results/*" element={<Results />} />
-          <Route path="taxonomy" element={<Taxonomy />} />
-          <Route path="sources" element={<Sources />} />
-          <Route path="details/:postId" element={<Details />} />
-        </Routes>
-      </div>
-    </div>
+      <Routes>
+        <Route path="/" element={<TableContainer />} />
+        <Route path="results/*" element={<Results />} />
+        <Route path="taxonomy" element={<Taxonomy />} />
+        <Route path="sources" element={<Sources />} />
+        <Route path="details/:postId" element={<Details />} />
+      </Routes>
+    </main>
   );
 }
 
