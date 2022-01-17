@@ -1,19 +1,25 @@
 {
   "data": [
     {
-      "id": 0,
+      "id": "date",
       "type": "data-interval",
       "label": "Time Interval",
-      "value": 100
+      "value": [
+        {
+          "startDate": null,
+          "endDate": null,
+          "key": "selection"
+        }
+      ]
     },
     {
-      "id": 1,
+      "id": "hasVideo",
       "type": "checkbox",
       "label": "Has video",
       "value": true
     },
     {
-      "id": 2,
+      "id": "platform",
       "type": "tag",
       "label": "Platform",
       "value": [],
@@ -37,13 +43,13 @@
       ]
     },
     {
-      "id": 3,
+      "id": "postContains",
       "type": "text",
       "label": "Post contains",
       "value": ""
     },
     {
-      "id": 4,
+      "id": "dataSource",
       "type": "tag",
       "label": "Data source",
       "value": [],
@@ -67,9 +73,9 @@
       ]
     },
     {
-      "id": 5,
+      "id": "topics",
       "type": "tag",
-      "label": "Topic",
+      "label": "Topics",
       "value": [],
       "values": [
         {
@@ -99,9 +105,9 @@
       ]
     },
     {
-      "id": 6,
+      "id": "persons",
       "type": "tag",
-      "label": "Person",
+      "label": "Persons",
       "value": [],
       "values": [
         {
@@ -131,37 +137,9 @@
       ]
     },
     {
-      "id": "topics",
-      "component": "typeahead",
-      "type": "input",
-      "name": "topics",
-      "label": "Topic",
-      "value": [],
-      "typeahead": [
-        {
-          "id": 0,
-          "label": "FacebookFacebook"
-        }
-      ]
-    },
-    {
-      "id": "persons",
-      "component": "typeahead",
-      "type": "input",
-      "name": "persons",
-      "label": "Persons",
-      "value": [],
-      "typeahead": [
-        {
-          "id": 0,
-          "label": "FacebookFacebook"
-        }
-      ]
-    },
-    {
       "id": "locations",
       "component": "typeahead",
-      "type": "input",
+      "type": "text",
       "name": "locations",
       "label": "Location",
       "value": [],

@@ -6,6 +6,7 @@ import { reduce } from 'fp-ts/lib/Array';
 import { Tag } from '../inputs/Tag';
 import { Checkbox } from '../inputs/Checkbox';
 import { Text } from '../inputs/Text';
+import { DateInterval } from '../date-interval/DateInterval';
 
 export function Filter() {
   const { data }: { data: FilterElement[] } = require('../../data/filter.json')
@@ -15,11 +16,12 @@ export function Filter() {
   useEffect(() => {
     // generate state object from data and set it to global state
     setFilters(reduce({}, (acc, cur: FilterElement) => (
-      { ...acc, [cur.label]: cur.value }
+      { ...acc, [cur.id]: cur.value }
     ))(data));
   }, [])
 
   const getElem = (el: FilterElement) => match(el.type)
+    .with("data-interval", () => <DateInterval data={el} />)
     .with("tag", () => <Tag data={el} />)
     .with("text", () => <Text data={el} />)
     .with("checkbox", () => <Checkbox data={el} />)

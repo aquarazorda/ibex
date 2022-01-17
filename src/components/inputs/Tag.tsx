@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from 'react';
 import { Typeahead } from 'react-bootstrap-typeahead';
 import { useGlobalState } from '../../app/store';
 import { FilterElementInput } from '../../types/form';
+
+import 'react-bootstrap-typeahead/css/Typeahead.css';
 
 type Tag = { id: number, label: string };
 
@@ -10,7 +11,7 @@ export function Tag({ data }: FilterElementInput) {
   const [filters, setFilters] = useGlobalState('filters');
 
   const onChange = (e: any) =>
-    setFilters({ ...filters, [data.label]: e });
+    setFilters({ ...filters, [data.id]: e });
 
   return (
     <div className="select-tags">
