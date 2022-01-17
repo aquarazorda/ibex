@@ -34,7 +34,7 @@
     },
     {
       "Header": "Toxicity",
-      "accessor": "scores.toxicity"
+      "accessor": "hate_speech"
     }
   ]
 }

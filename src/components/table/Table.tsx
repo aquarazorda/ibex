@@ -1,5 +1,4 @@
 import React, { useEffect, useMemo, useState } from 'react';
-import { POSTS_ } from '../../data/data';
 
 import { useTable } from 'react-table';
 import cols from '../../data/columns.json';
@@ -7,7 +6,7 @@ import { Https } from '../../shared/Http';
 import * as E from "fp-ts/lib/Either";
 
 export function Table() {
-  const [data, setData] = useState([]);
+  const [data, setData]: any = useState([]);
   const columns: any = useMemo(() => cols.data, []);
 
   useEffect(() => {
@@ -46,20 +45,45 @@ export function Table() {
           </tr>
         ))}
       </thead>
-      {/* <div >
-        <div className="table--row">
-          <div className="table--col"><span>date</span></div>
-          <div className="table--col"><span>platform</span></div>
-          <div className="table--col"><span>Channel</span></div>
-          <div className="table--col"><span>Titles</span></div>
-          <div className="table--col"><i className="icn icn--like"></i></div>
-          <div className="table--col"><i className="icn icn--dislike"></i></div>
-          <div className="table--col"><i className="icn icn--share"></i></div>
-          <div className="table--col"><i className="icn icn--comment"></i></div>
-          <div className="table--col"><i className="icn icn--toxicity"></i></div>
-        </div>
-      </div> */}
-      <div className="table--body">
+      <tbody className="table--body" {...getTableBodyProps()}>
+        {rows.map((row: any, i: number) => {
+          prepareRow(row)
+          const { labels } = data[i];
+          const tags = [].concat(
+            labels.topics || [],
+            labels.persons || [],
+            labels.locations || [],
+            labels.organizations || []
+          );
+
+          return (
+            <>
+              <tr {...row.getRowProps()} className="table--item">
+                <div className="table--row">
+                  {row.cells.map((cell: any) => {
+                    return <td {...cell.getCellProps()} className="table--col">
+                      {cell.render('Cell')}
+                    </td>
+                  })}
+                </div>
+              </tr>
+              <div className="table--extra-row"><i className="icn icn--type-video"></i>
+                <div className="table--item-tags">
+                  <div className="flex">
+                    <span className="font-xs mr-15">Tags</span>
+                    <div className="flex">
+                      {tags.map(({ title }: any) => (
+                        <span className="badge bg-secondary">{title}</span>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </>
+          )
+        })}
+      </tbody>
+      {/* <div className="table--body">
         <div className="table--item">
           <div className="table--row">
             <div className="table--col"><span className="font--xs">12/03/2021</span></div>
@@ -76,18 +100,7 @@ export function Table() {
             <div className="table--col"> <span>3755</span></div>
             <div className="table--col"> <span>95</span></div>
           </div>
-          <div className="table--extra-row"><i className="icn icn--type-video"></i>
-            <div className="table--item-tags">
-              <div className="flex"><span className="font-xs mr-15">Tags</span>
-                <div className="flex"><span className="badge bg-secondary">tag 1</span><span className="badge bg-secondary">tag 2</span><span className="badge bg-secondary">tag 3</span></div>
-              </div>
-            </div>
-            <div className="table--item-tags">
-              <div className="flex"><span className="font-xs mr-15">Person</span>
-                <div className="flex"><span className="badge bg-secondary">Mikheil saakashvili</span><span className="badge bg-secondary">Giorgi gakharia</span><span className="badge bg-secondary">tag 3</span></div>
-              </div>
-            </div>
-          </div>
+          
         </div>
         <div className="table--item">
           <div className="table--row">
@@ -119,7 +132,7 @@ export function Table() {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
     </table>
   )
   // return (
@@ -136,18 +149,7 @@ export function Table() {
   //           </tr>
   //         ))}
   //       </thead>
-  //       <tbody {...getTableBodyProps()}>
-  //         {rows.map((row: any, i: number) => {
-  //           prepareRow(row)
-  //           return (
-  //             <tr {...row.getRowProps()}>
-  //               {row.cells.map((cell: any) => {
-  //                 return <td {...cell.getCellProps()}>{cell.render('Cell')}</td>
-  //               })}
-  //             </tr>
-  //           )
-  //         })}
-  //       </tbody>
+
   //     </table>
   //   </div>
   // );
