@@ -1,6 +1,20 @@
 {
   "data": [
     {
+      "id": "topics",
+      "component": "typeahead",
+      "type": "input",
+      "name": "topics",
+      "label": "Topic",
+      "value": [],
+      "typeahead": [
+        {
+          "id": 0,
+          "label": "FacebookFacebook"
+        }
+      ]
+    },
+    {
       "id": "type",
       "component": "typeahead",
       "type": "input",
@@ -41,20 +55,6 @@
         {
           "id": 2,
           "label": "YouTube"
-        }
-      ]
-    },
-    {
-      "id": "topics",
-      "component": "typeahead",
-      "type": "input",
-      "name": "topics",
-      "label": "Topic",
-      "value": [],
-      "typeahead": [
-        {
-          "id": 0,
-          "label": "FacebookFacebook"
         }
       ]
     },

@@ -31,7 +31,8 @@ export const options = {
     responsive: true,
     plugins: {
         legend: {
-            position: 'right' as const,
+            // position: 'right' as const,
+            display: false
         },
     },
     layout:{
@@ -63,24 +64,25 @@ export function BarChart() {
     const [fetching, setFetching] = useState(true);
     
     const change = (e: any) => {
+        setFetching(true)
         fetchAndSet(e.target.value)
     }
 
-    const fetchAndSet = (label: any) => {
+    const fetchAndSet = (labelType: string) => {
         const fetchData = Https.get('posts_aggregated', {
             "post_request_params": {
               "time_interval_from": "2021-01-16T17:23:05.925Z",
               "time_interval_to": "2021-07-16T17:23:05.925Z",
             },
-            "axisX": label,
+            "axisX": labelType,
             // "days": 30
          });
          
         fetchData.then(_data => {
             let pre_data: any = {count:0}
-            pre_data[label] = {title:0}
-            let kkk = E.getOrElse(() => [pre_data])(_data)
-            let labels = kkk.map(i => i[label].title)
+            pre_data[labelType] = {title:0}
+            let maybeData = E.getOrElse(() => [pre_data])(_data)
+            let labels = maybeData.map(i => i[labelType].title)
             data_ = {
                 labels,
                 datasets: [
@@ -91,8 +93,8 @@ export function BarChart() {
                         pointBorderColor: '#111',
                         pointBackgroundColor: '#ff4000',
                         pointBorderWidth: 2,
-                        label: label,
-                        data: kkk.map(i => i.count),
+                        label: labelType,
+                        data: maybeData.map(i => i.count),
                     },
                 ],
             }; 
@@ -106,7 +108,7 @@ export function BarChart() {
 
     if (fetching) {
         return (
-            <div>Loding</div>
+            <div>Loading...</div>
         )
     }
     return (
