@@ -34,6 +34,14 @@ export const options = {
             position: 'right' as const,
         },
     },
+    layout:{
+        padding: {
+            top: 5,
+            left: 15,
+            right: 15,
+            bottom: 200
+        }
+    }
 };
 
 const change = (e: any) => {
@@ -43,7 +51,7 @@ const change = (e: any) => {
 export function BarChart() {
 // const BarChart = () => {
     let labels = [1, 2, 3, 4]
-    let data_ = {
+    let data_: any = {
         labels,
         datasets: [
             {
@@ -68,41 +76,36 @@ export function BarChart() {
          });
          
         fetchData.then(_data => {
-            // data1 = _data.right;
-
-            debugger
-            // let labels = _data["right"].map(i => i.topics.title)
-            labels = [18, 2, 3, 4]
+            let kkk = E.getOrElse(() => [{topics:{title:0},count:0}])(_data)
+            let labels = kkk.map(i => i.topics.title)
             data_ = {
                 labels,
                 datasets: [
                     {
+                        fill: false,
+                        lineTension: 0.1,
+                        backgroundColor: 'rgba(75,192,192,0.4)',
+                        // borderColor: this.gradient,
+                        pointBorderColor: '#111',
+                        pointBackgroundColor: '#ff4000',
+                        pointBorderWidth: 2,
+        //   backgroundColor: 'rgba(52, 152, 219, 0.75)',
                         label: 'Topics',
-                        // data: _data["right"].map(i => i.count),
-                        data: [2, 2, 2, 2],
-                        backgroundColor: 'rgba(255, 99, 132, 0.5)',
+                        data: kkk.map(i => i.count),
+                        // backgroundColor: 'rgba(255, 99, 132, 0.5)',
                     },
                 ],
             }; 
-            console.log(_data)//["right"].map(i => i.topics.title));
-            // let k = _data
-            setFetching(true)
-
-            console.log(fetching, _data);
-            // setData(E.getOrElse(() => [])(_data));
-            // if(_data])
             setData(data_);
             setFetching(false)
-            console.log(fetching, _data);
         });
 
     }, []);
 
     if (fetching) {
         return (
-            <div>jjjjjj</div>
+            <div>Loding</div>
         )
-        
     }
     return (
         <div>
@@ -114,8 +117,9 @@ export function BarChart() {
                 placeholder="Axis X"
             // selected={value}
             />
-            
-            <Bar options={options} data={data} />
+            <div className="chart">
+                <Bar options={options} data={data} />
+            </div>
                 
         </div>
     );
