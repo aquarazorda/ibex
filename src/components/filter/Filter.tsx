@@ -48,6 +48,25 @@ export function Filter() {
                       </div>
                     </div>
                   ))}
+                  <div className="col-2">
+                      
+                      <div className="form__item">
+                        
+                      </div>
+                    </div>
+                  <div className="col-2">
+                      
+                      <div className="form__item btn">
+                        <a href="#" >Download</a>
+                      </div>
+                    </div>
+                    <div className="col-2">
+                      
+                      <div className="form__item btn">
+                        <a href="#" >Save</a>
+                      </div>
+                    </div>
+
                 </div>
               </div>
             </div>

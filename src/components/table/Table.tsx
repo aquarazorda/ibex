@@ -45,7 +45,7 @@ export function Table() {
         {headerGroups.map((headerGroup: any) => (
           <tr {...headerGroup.getHeaderGroupProps()} className="table--row">
             {headerGroup.headers.map((column: any) => (
-              <th {...column.getHeaderProps()} className="table--col">{column.render('Header')}</th>
+              <th {...column.getHeaderProps()} className="table--col">{column.render('Header')} {column.render('Header') == 'Date' ? '▼' : ''}</th>
             ))}
           </tr>
         ))}
@@ -78,7 +78,7 @@ export function Table() {
                       {/* <span className="font-xs mr-15">Tags</span> */}
                       <div className="flex">
                         {tags.map(({ title }: any) => (
-                          <span className="badge bg-secondary">{title}</span>
+                          <a href="£" className="badge bg-secondary">{title}</a>
                         ))}
                       </div>
                     </div>

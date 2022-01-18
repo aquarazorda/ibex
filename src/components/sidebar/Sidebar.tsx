@@ -29,6 +29,11 @@ export function Sidebar() {
           <li><a className="inactive" href="/results/map" >Map</a></li>
         </ul>
       </nav>
+      <nav className="main-nav bottom">
+        <ul>
+          <li><a href="#" >Log out</a></li>
+        </ul>
+      </nav>
       {/* <button className="btn btn--show-hide"><span>Hide sidebar</span><i className="icn icn--double-chevron-up"></i>
       </button> */}
     </aside>

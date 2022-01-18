@@ -127,15 +127,33 @@
     },
     {
       "id": "locations",
-      "component": "typeahead",
-      "type": "text",
-      "name": "locations",
-      "label": "Location",
+      "type": "tag",
+      "label": "Locations",
       "value": [],
-      "typeahead": [
+      "values": [
         {
           "id": 0,
-          "label": "FacebookFacebook"
+          "label": "Tbilisi"
+        },
+        {
+          "id": 1,
+          "label": "Batumi"
+        },
+        {
+          "id": 2,
+          "label": "New York"
+        },
+        {
+          "id": 3,
+          "label": "Paris"
+        },
+        {
+          "id": 4,
+          "label": "Zestafoni"
+        },
+        {
+          "id": 5,
+          "label": "Maui"
         }
       ]
     },
