@@ -51,22 +51,16 @@ export const options = {
 
 export function LineChart() {
 // const BarChart = () => {
-  let labels = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
+  var cols = [ "#bf501f", "#f59c34", "#89a7c6", "#7bc597", "#8d639a", "#8d639a", "#e4a774", "#828687", "darkorchid", "darkred", "darksalmon", "darkseagreen", "darkslateblue", "darkslategray", "darkslategrey", "darkturquoise", "darkviolet", "deeppink", "deepskyblue", "dimgray", "dimgrey", "dodgerblue", "firebrick"]
+
+  let labels = [''];
 
   let data_: any = {
     labels,
     datasets: [
       {
-        label: 'Dataset 1',
-        data: labels.map(() => 8),
-        borderColor: 'rgb(255, 99, 132)',
-        backgroundColor: 'rgba(255, 99, 132, 0.5)',
-      },
-      {
-        label: 'Dataset 2',
-        data: labels.map(() => 4),
-        borderColor: 'rgb(53, 162, 235)',
-        backgroundColor: 'rgba(53, 162, 235, 0.5)',
+        label: '',
+        data: labels.map(() => 0)
       },
     ],
   };
@@ -108,34 +102,35 @@ export function LineChart() {
 
 
           let intervals: any = ['']
-          let labels: [] = maybeData.map((i:any) => i[labelType].title).filter((v: any, i: any, a: any) => a.indexOf(v) === i)
+          let post_label_values: [] = maybeData.map((i:any) => i[labelType].title).filter((v: any, i: any, a: any) => a.indexOf(v) === i)
 
 
-          let datasets = labels.map((i:any) => ({
+          let datasets = post_label_values.map((i:any, index: number) => ({
             label: i,
             data: [0],
-            borderColor: 'rgb(255, 99, 132)',
-            backgroundColor: 'rgba(255, 99, 132, 0.5)',
+            borderColor: cols[index],
+            backgroundColor: cols[index],
           }))
-
-          debugger
-          for(let week = startWeek; startWeek <= startWeek + numberOfWeeks; startWeek++){
+          labels = []
+          // debugger
+          for(let week = startWeek; week <= startWeek + numberOfWeeks; week++){
               var intervalDate = new Date(dateFrom);
               dateFrom.setDate(dateFrom.getDate() + week * 7);
               
-              intervals.push(intervalDate.toISOString())
+              labels.push(intervalDate.toISOString().slice(0,10))
               
               datasets.forEach((dataset: any) => {
+                let match = maybeData.find((d:any) => d[labelType].title == dataset.label && d._id.week == week)
                 
-                dataset.data.push(0)
+                dataset.data.push(match ? match.count : 0)
               })
             }
-            debugger
-
-
             
-          //   setData(data_);
-          //   setFetching(false)
+            setData({
+              labels,
+              datasets: datasets,
+            });
+            setFetching(false)
         });
 
     }
@@ -150,7 +145,8 @@ export function LineChart() {
     return (
         <div className="results">
             <select onChange={change}>
-                {   filterData.data.map(d => <option key={d.id}>{d.id}</option> )     }
+            {   ['topics', 'persons', 'locations', 'platforms', 'datasources'].map(d => <option key={d}>{d}</option> )     }
+
             </select>
             
             {/* <Typeahead

@@ -1662,6 +1662,19 @@ main.main .main-dashboard {
   width: 100%;
   height: calc(100% - 50px);
   position: absolute;
-  bottom: 20px;
-  overflow: scroll;
+  top: 70px;
+  overflow: hidden;
+  width: 70%;
+}
+
+.inactive {
+  opacity: .3;
+}
+
+.sidebar .main-nav ul li a:hover{
+  color: #1f1f1f;
+}
+
+.sidebar .main-nav ul li ul li {
+  padding-left: 10px;
 }

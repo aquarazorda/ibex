@@ -48,6 +48,7 @@ export const options = {
 
 export function BarChart() {
 // const BarChart = () => {
+    var cols = [ "#bf501f", "#f59c34", "#89a7c6", "#7bc597", "#8d639a", "#8d639a", "#e4a774", "#828687", "darkorchid", "darkred", "darksalmon", "darkseagreen", "darkslateblue", "darkslategray", "darkslategrey", "darkturquoise", "darkviolet", "deeppink", "deepskyblue", "dimgray", "dimgrey", "dodgerblue", "firebrick"]
     let labels = [0]
     let data_: any = {
         labels,
@@ -114,7 +115,7 @@ export function BarChart() {
     return (
         <div className="results">
             <select onChange={change}>
-                {   filterData.data.map(d => <option key={d.id}>{d.id}</option> )     }
+                {   ['topics', 'persons', 'locations', 'platforms', 'datasources'].map(d => <option key={d}>{d}</option> )     }
             </select>
             
             {/* <Typeahead
