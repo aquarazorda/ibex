@@ -13,7 +13,7 @@ export function Results() {
   return (
     <div className="main-dashboard">
       <Filter />
-      <Header />
+      {/* <Header /> */}
       <Routes>
         <Route path="/" element={<Table />} />
         <Route path="bar" element={<BarChart />} />

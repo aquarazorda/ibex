@@ -90,56 +90,52 @@ export function LineChart() {
          });
          
         fetchData.then(_data => {
-          let maybeData = E.getOrElse(() => [pre_data])(_data)
+          let maybeData:any  = E.getOrElse(() => [data_])(_data)
+          if(!maybeData.length){
+            return
+          }
 
-          var dateTo: Date = new Date("2021-01-01T17:23:05.925Z");
-          var dateFrom:Date = new Date("2021-01-25T17:23:05.925Z");
-          var interval: number = dateFrom.getTime() - dateTo.getTime()
+          var dateFrom: Date = new Date("2021-01-16T17:23:05.925Z");
+          var dateTo:Date = new Date("2021-07-16T17:23:05.925Z");
+          var interval: number = (dateTo.getTime() - dateFrom.getTime())
           var numberOfDays = Math.floor(interval / (24 * 60 * 60 * 1000));
-          // var numberOfWeeks = Math.ceil(numberOfDays / 7);
-          let intervals: any = []
-          let labels = maybeData.map((i:any) => i[labelType].title)
+          var numberOfWeeks = Math.ceil(numberOfDays / 7);
+          
+          // var firstJan = new Date(1900 + dateFrom.getYear(), 0, 1)
+          var firstJan = new Date(2021, 0, 1)
+          var daysThisYear = (dateFrom.getTime() - firstJan.getTime()) / (24 * 60 * 60 * 1000)
+          var startWeek = Math.ceil(daysThisYear/7)
+
+
+          let intervals: any = ['']
+          let labels: [] = maybeData.map((i:any) => i[labelType].title).filter((v: any, i: any, a: any) => a.indexOf(v) === i)
+
+
           let datasets = labels.map((i:any) => ({
             label: i,
-            data: [],
+            data: [0],
             borderColor: 'rgb(255, 99, 132)',
             backgroundColor: 'rgba(255, 99, 132, 0.5)',
           }))
 
-
-          for(let days = 0; days <= numberOfDays; days+=7){
-              var iterrationDateFrom = new Date(dateFrom);
-              iterrationDateFrom.setDate(iterrationDateFrom.getDate() + days);
-              var iterrationDateTo = new Date(dateFrom);
-              iterrationDateTo.setDate(iterrationDateTo.getDate() + days + 7);
-              intervals.push(iterrationDateFrom.toISOString())
-              datasets.forEach(dataset => {
-                // dataset.data.
+          debugger
+          for(let week = startWeek; startWeek <= startWeek + numberOfWeeks; startWeek++){
+              var intervalDate = new Date(dateFrom);
+              dateFrom.setDate(dateFrom.getDate() + week * 7);
+              
+              intervals.push(intervalDate.toISOString())
+              
+              datasets.forEach((dataset: any) => {
+                
+                dataset.data.push(0)
               })
-          }
+            }
+            debugger
 
 
-            let pre_data: any = {count:0}
-            pre_data[labelType] = {title:0}
             
-            // let labels = kkk.map(i => i[label].title)
-            data_ = {
-                intervals,
-                datasets: [
-                    {
-                        fill: false,
-                        lineTension: 0.1,
-                        backgroundColor: 'rgba(75,192,192,0.4)',
-                        pointBorderColor: '#111',
-                        pointBackgroundColor: '#ff4000',
-                        pointBorderWidth: 2,
-                        label: labelType,
-                        // data: kkk.map(i => i.count),
-                    },
-                ],
-            }; 
-            // setData(data_);
-            setFetching(false)
+          //   setData(data_);
+          //   setFetching(false)
         });
 
     }
@@ -148,13 +144,13 @@ export function LineChart() {
 
     if (fetching) {
         return (
-            <div>Loading...</div>
+            <div className="results" >Loading...</div>
         )
     }
     return (
-        <div>
+        <div className="results">
             <select onChange={change}>
-                {   filterData.data.map(d => <option key={d.name}>{d.name}</option> )     }
+                {   filterData.data.map(d => <option key={d.id}>{d.id}</option> )     }
             </select>
             
             {/* <Typeahead

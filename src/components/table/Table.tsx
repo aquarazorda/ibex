@@ -17,8 +17,13 @@ export function Table() {
     });
 
     fetchData.then(_data => {
-      setData(E.getOrElse(() => [])(_data));
-      console.log(_data);
+      let maybeData = E.getOrElse(() => [])(_data)
+      maybeData.forEach((row: any) => {
+        // console.log(row)
+        row.created_at = new Date(row.created_at).toLocaleDateString("en-US")
+      })
+      setData(maybeData);
+      // console.log(_data);
     });
 
   }, []);
@@ -66,19 +71,20 @@ export function Table() {
                     </td>
                   })}
                 </div>
-              </tr>
-              <div className="table--extra-row"><i className="icn icn--type-video"></i>
-                <div className="table--item-tags">
-                  <div className="flex">
-                    <span className="font-xs mr-15">Tags</span>
+              
+                <div className="table--extra-row"><i className="icn icn--type-video"></i>
+                  <div className="table--item-tags">
                     <div className="flex">
-                      {tags.map(({ title }: any) => (
-                        <span className="badge bg-secondary">{title}</span>
-                      ))}
+                      {/* <span className="font-xs mr-15">Tags</span> */}
+                      <div className="flex">
+                        {tags.map(({ title }: any) => (
+                          <span className="badge bg-secondary">{title}</span>
+                        ))}
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
+              </tr>
             </>
           )
         })}

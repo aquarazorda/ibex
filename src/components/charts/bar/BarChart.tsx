@@ -106,15 +106,15 @@ export function BarChart() {
     
     useEffect(() => fetchAndSet('topics'), []);
 
-    if (fetching) {
+    if (fetching ) {
         return (
-            <div>Loading...</div>
+            <div className="results">Loading...</div>
         )
     }
     return (
-        <div>
+        <div className="results">
             <select onChange={change}>
-                {   filterData.data.map(d => <option key={d.name}>{d.name}</option> )     }
+                {   filterData.data.map(d => <option key={d.id}>{d.id}</option> )     }
             </select>
             
             {/* <Typeahead

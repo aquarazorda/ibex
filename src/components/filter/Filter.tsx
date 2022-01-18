@@ -6,6 +6,7 @@ import { reduce } from 'fp-ts/lib/Array';
 import { Tag } from '../inputs/Tag';
 import { Checkbox } from '../inputs/Checkbox';
 import { Text } from '../inputs/Text';
+import { Date } from '../inputs/Date';
 import { DateInterval } from '../date-interval/DateInterval';
 
 export function Filter() {
@@ -23,6 +24,7 @@ export function Filter() {
   const getElem = (el: FilterElement) => match(el.type)
     .with("data-interval", () => <DateInterval data={el} />)
     .with("tag", () => <Tag data={el} />)
+    .with("date", () => <Date data={el} />)
     .with("text", () => <Text data={el} />)
     .with("checkbox", () => <Checkbox data={el} />)
     .otherwise(() => {
@@ -36,10 +38,10 @@ export function Filter() {
         <div className="row">
           <div className="col-12">
             <div className="row">
-              <div className="col-6">
+              <div className="col-12">
                 <div className="row">
                   {data.map(el => (
-                    <div className="col-4">
+                    <div className="col-2">
                       <p className="font--xs font--gray-3 mb-5">{el.label}</p>
                       <div className="form__item">
                         {getElem(el)}

@@ -1,22 +1,17 @@
 {
   "data": [
     {
-      "id": "date",
-      "type": "data-interval",
-      "label": "Time Interval",
-      "value": [
-        {
-          "startDate": null,
-          "endDate": null,
-          "key": "selection"
-        }
-      ]
+      "id": "date-from",
+      "type": "date",
+      "label": "Date from",
+      "value": ""
+  
     },
     {
-      "id": "hasVideo",
-      "type": "checkbox",
-      "label": "Has video",
-      "value": true
+      "id": "date-to",
+      "type": "date",
+      "label": "Date to",
+      "value": ""
     },
     {
       "id": "platform",
@@ -41,12 +36,6 @@
           "label": "geoTV"
         }
       ]
-    },
-    {
-      "id": "postContains",
-      "type": "text",
-      "label": "Post contains",
-      "value": ""
     },
     {
       "id": "dataSource",
@@ -149,6 +138,18 @@
           "label": "FacebookFacebook"
         }
       ]
+    },
+    {
+      "id": "postContains",
+      "type": "text",
+      "label": "Post contains",
+      "value": ""
+    },
+    {
+      "id": "hasVideo",
+      "type": "checkbox",
+      "label": "Has video",
+      "value": true
     }
   ]
 }
