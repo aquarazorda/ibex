@@ -97,7 +97,7 @@ export function BarChart() {
                     {
                         fill: false,
                         lineTension: 0.1,
-                        backgroundColor: 'rgba(75,192,192,0.4)',
+                        backgroundColor: '#8d639a',
                         pointBorderColor: '#111',
                         pointBackgroundColor: '#ff4000',
                         pointBorderWidth: 2,
@@ -123,6 +123,9 @@ export function BarChart() {
         <div className="results">
             <select onChange={change}>
                 {['topics', 'persons', 'locations', 'platforms', 'datasources'].map(d => <option key={d}>{d}</option>)}
+            </select>
+            <select onChange={change}>
+                {['hate-speech', 'count', 'reach-out', 'likes', 'shares', 'sentiment', 'comments'].map(d => <option key={d}>{d}</option>)}
             </select>
 
             {/* <Typeahead

@@ -148,6 +148,9 @@ export function LineChart() {
             {   ['topics', 'persons', 'locations', 'platforms', 'datasources'].map(d => <option key={d}>{d}</option> )     }
 
             </select>
+            <select onChange={change}>
+                {['hate-speech', 'count', 'reach-out', 'likes', 'shares', 'sentiment', 'comments'].map(d => <option key={d}>{d}</option>)}
+            </select>
             
             {/* <Typeahead
                 // multiple

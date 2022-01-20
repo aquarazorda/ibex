@@ -1183,7 +1183,7 @@ section {
   position: relative;
   -webkit-border-radius: 8px;
           border-radius: 8px;
-  margin-bottom: 15px;
+  margin-bottom: 0;
 }
 .filter .btn--show-hide {
   position: absolute;
@@ -1626,9 +1626,9 @@ a, span, div, button {
   position: relative;
 }
 .results{
-  width: 100%;
-height: 100px;
-padding: 0px 14px;
+  margin: 15px 0 15px 15px;
+  padding-right: 15px;
+  overflow: hidden;
 }
 .filter{
   flex-grow: 1;
@@ -1727,4 +1727,19 @@ font-size: 14px;
 }
 .table--header .table--col:hover{
   opacity: .7;
+}
+
+
+
+.rbt-token.rbt-token-removeable{
+  background: #8d639a63;
+  color: inherit;
+}
+
+
+/* map */
+
+.leaflet-container.leaflet-touch.leaflet-retina.leaflet-fade-anim.leaflet-grab.leaflet-touch-drag.leaflet-touch-zoom {
+  width: 100%;
+  height: 100%;
 }
