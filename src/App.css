@@ -1743,3 +1743,17 @@ font-size: 14px;
   width: 100%;
   height: 100%;
 }
+
+.leaflet-marker-icon.leaflet-div-icon.leaflet-zoom-animated.leaflet-interactive {
+  background: none;
+  border: none;
+}
+
+.circle-map {
+  background: red;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  border: 1px solid white;
+  /* display: none; */
+}
